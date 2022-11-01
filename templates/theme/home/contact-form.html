@@ -1,0 +1,77 @@
+      <!-- Contact Form-->
+      <section class="section section-sm section-last bg-default text-left" id="contacts">
+        <div class="container">
+          <article class="title-classic">
+            <div class="title-classic-title">
+              <h3>Bizimle İletişime Geçin</h3>
+            </div>
+            <div class="title-classic-text">
+              <p>Eğer bir sorunuz varsa iletişim formu üzerinden bize mesaj gönderebilirsiniz. En kısa sürede size cevap verilecektir.</p>
+            </div>
+          </article>
+
+          <form method="POST" action="{% url 'index' %}">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                {{form.email}}
+                {%if form.errors.email %}
+                {{form.errors.email}}
+                {%endif%}
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Adınız</label>
+                {{form.first_name}}
+                {%if form.errors.first_name %}
+                {{form.errors.first_name}}
+                {%endif%}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Soyadınız</label>
+              {{form.last_name}}
+              {%if form.errors.last_name %}
+              {{form.errors.last_name}}
+              {%endif%}
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">şirket</label>
+              {{form.Company}}
+              {%if form.errors.Company %}
+              {{form.errors.Company}}
+              {%endif%}
+
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Telefon</label>
+              {{form.phone}}
+              {%if form.errors.phone %}
+              {{form.errors.phone}}
+              {%endif%}
+
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Mesajınız</label>
+                {{form.message}}
+                {%if form.errors.message %}
+                {{form.errors.message}}
+                {%endif%}
+
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState"></label>
+                {{form.emailorphone}}
+                {%if form.errors.emailorphone %}
+                {{form.errors.emailorphone}}
+                {%endif%}
+              </div>
+            </div>
+            <button type="submit" href="contacts" class="btn btn-primary">Sign in</button>
+        </form>
+          </form>
+        </div>
+      </section>
+
+

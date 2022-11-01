@@ -1,0 +1,31 @@
+        <!-- Swiper-->
+        <section class="section swiper-container swiper-slider swiper-slider-classic" data-loop="true" data-autoplay="4859" data-simulate-touch="true" data-direction="vertical" data-nav="false">
+            <div class="swiper-wrapper text-center">
+              {%for slider in sliders %}
+              <div class="swiper-slide" data-slide-bg="{{slider.slider_image.url}}">
+                <div class="swiper-slide-caption section-md">
+                  <div class="container">
+                    {%if slider.slider_title_activate%}
+                    <h1 data-caption-animate="fadeInLeft" data-caption-delay="2">{{slider.slider_title}}</h1>
+                    {%endif%}
+                    {%if slider.slider_description_activate%}
+                    <p class="text-width-large" data-caption-animate="fadeInRight" data-caption-delay="2">{{slider.slider_description}}</p>
+                    {%endif%}
+                    {%if slider.slider_button_activate%}
+                    <a class="button button-primary button-ujarak" href="{{slider.slider_button_url}}" data-toggle="modal" data-caption-animate="fadeInUp" data-caption-delay="2">{{slider.slider_button_title}}</a>
+                    {%endif%}
+
+                  </div>
+                </div>
+              </div>
+              {%endfor%}
+              
+              
+            </div>
+            <!-- Swiper Pagination-->
+            <div class="swiper-pagination__module">
+              <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index">00</span><span class="swiper-pagination__fraction-divider">/</span><span class="swiper-pagination__fraction-count">00</span></div>
+              <div class="swiper-pagination__divider"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </section>

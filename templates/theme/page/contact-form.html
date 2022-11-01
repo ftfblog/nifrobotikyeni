@@ -1,0 +1,235 @@
+{%load static%}
+     {%load static%}
+     {% load mptt_tags %}
+
+     
+     <head>
+      <title>{{site_footer.sitename}}</title>
+      <meta name="format-detection" content="telephone=no">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <link rel="icon" href="{{site_favicon}}" type="image/x-icon">
+      <!-- Stylesheets-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:400,500,600%7CTeko:300,400,500%7CMaven+Pro:500">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    </head>
+
+     <header class="section page-header">
+       <!-- RD Navbar-->
+       <div class="rd-navbar-wrap">
+         <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+           <div class="rd-navbar-main-outer">
+             <div class="rd-navbar-main">
+               <!-- RD Navbar Panel-->
+               <div class="rd-navbar-panel">
+                 <!-- RD Navbar Toggle-->
+                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                 <!-- RD Navbar Brand-->
+                 <div class="rd-navbar-brand"><a class="brand" href="/"><img src="{{site_footer.site_logo.url}}" alt="" width="223" height="50"/></a></div>
+               </div>
+               <div class="rd-navbar-main-element">
+                 <div class="rd-navbar-nav-wrap">
+                   <head>
+                       <meta name="viewport" content="width=device-width, initial-scale=1">
+                       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+                       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+                   
+                    </head>
+
+                   <ul class="rd-navbar-nav">
+                       <li class="nav-item dropdown">
+                       {% recursetree menu %}
+                       {%if node.menu_activate%}
+                       <li class="rd-nav-item active"><a class="rd-nav-link" href="/{{node.menu_url}}">{{node.menu_name}}</a></li>                             
+                       {%else%}
+                       <li class="rd-nav-item"><a class="rd-nav-link" href="/{{node.menu_url}}">{{node.menu_name}}</a></li>                             
+                       {%endif%}
+                       {% endrecursetree %}
+                   </li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </nav>
+       </div>
+     </header>
+     
+   <br></br>  
+<h3>İletişim Sayfası</h3>
+
+<!-- Contact information-->
+<section class="section section-sm bg-default">
+    <div class="container">
+      <div class="row row-30 justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <article class="box-contacts">
+            <div class="box-contacts-body">
+              <div class="box-contacts-icon fl-bigmug-line-cellphone55"></div>
+              <div class="box-contacts-decor"></div>
+              <p class="box-contacts-link"><a href="tel:{{site.site_phone}}">{{site_footer.site_phone}}</a></p>
+            </div>
+          </article>
+        </div>
+        {%if site_footer.site_adres%}
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <article class="box-contacts">
+            <div class="box-contacts-body">
+              <div class="box-contacts-icon fl-bigmug-line-up104"></div>
+              <div class="box-contacts-decor"></div>
+              <p class="box-contacts-link"><a {%if site.site_adres_url%} href="{{site_footer.site_adres_url}}" {%endif%}>{{site_footer.site_adres}}</a></p>
+            </div>
+            {%endif%}
+          </article>
+        </div>
+        {%if site.site_email%}
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <article class="box-contacts">
+            <div class="box-contacts-body">
+              <div class="box-contacts-icon fl-bigmug-line-chat55"></div>
+              <div class="box-contacts-decor"></div>
+              <p class="box-contacts-link"><a href="mailto:{{site.site_email}}">{{site.site_email}}</a></p>
+            </div>
+            {%endif%}
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Contact Form-->
+<section class="section section-sm section-last bg-default text-left" id="contacts">
+    <div class="container">
+      <article class="title-classic">
+        <div class="title-classic-title">
+          <h3>Bizimle İletişime Geçin</h3>
+        </div>
+        <div class="title-classic-text">
+          <p>Eğer bir sorunuz varsa iletişim formu üzerinden bize mesaj gönderebilirsiniz. En kısa sürede size cevap verilecektir.</p>
+        </div>
+      </article>
+
+      <form method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            {{form.email}}
+            {%if form.errors.email %}
+            {{form.errors.email}}
+            {%endif%}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Adınız</label>
+            {{form.first_name}}
+            {%if form.errors.first_name %}
+            {{form.errors.first_name}}
+            {%endif%}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Soyadınız</label>
+          {{form.last_name}}
+          {%if form.errors.last_name %}
+          {{form.errors.last_name}}
+          {%endif%}
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">şirket</label>
+          {{form.Company}}
+          {%if form.errors.Company %}
+          {{form.errors.Company}}
+          {%endif%}
+
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Telefon</label>
+          {{form.phone}}
+          {%if form.errors.phone %}
+          {{form.errors.phone}}
+          {%endif%}
+
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Mesajınız</label>
+            {{form.message}}
+            {%if form.errors.message %}
+            {{form.errors.message}}
+            {%endif%}
+
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState"></label>
+            {{form.emailorphone}}
+            {%if form.errors.emailorphone %}
+            {{form.errors.emailorphone}}
+            {%endif%}
+          </div>
+        </div>
+        <button type="submit" href="contacts" class="btn btn-primary">Sign in</button>
+    </form>
+      </form>
+    </div>
+  </section>
+  </div>
+    </div>
+     <!-- Page Footer-->
+     {%if footer%}
+     <footer class="section section-fluid footer-minimal context-dark">
+         <div class="bg-gray-15">
+           <div class="container-fluid">
+             <div class="footer-minimal-inset oh">
+               <ul class="footer-list-category-2">
+                 {%for footer in footer%}
+                 <li><a href="http://127.0.0.1:8000/{{footer.menu_url}}">{{footer.menu_name}}</a></li>
+                 {%endfor%}
+               </ul>
+             </div>
+             <div class="footer-minimal-bottom-panel text-sm-left">
+               <div class="row row-10 align-items-md-center">
+                 <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+                   <div>
+                     <ul class="list-inline list-inline-sm footer-social-list-2">
+                       {%if site_footer.facebook_url%}
+                       <li><a class="icon fa fa-facebook" href="{{site_footer.facebook_url}}"></a></li>
+                       {%endif%}
+                       {%if site_footer.twitter_url%}
+                       <li><a class="icon fa fa-twitter" href="{{site_footer.twitter_url}}"></a></li>
+                       {%endif%}
+                       {%if site_footer.instgram_url%}
+                       <li><a class="icon fa fa-instagram" href="{{site_footer.instgram_url}}"></a></li>
+                       {%endif%}
+                     </ul>
+                   </div>
+                 </div>
+                 <div class="col-sm-6 col-md-4 order-sm-first">
+                   <!-- Rights-->
+                   
+                 </div>
+                 {%if site_footer.copyright%}
+                 <div class="col-sm-6 col-md-4 text-md-right"><span>{{site_footer.copyright}}</span>
+                 {%endif%}
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </footer>
+     {%endif%}
+     </div>
+     <div class="snackbars" id="form-output-global"></div>
+     </body>
+     </html>
+<script src="{% static 'css/project.scss' %}"></script>
+<script src="{% static 'css/rd-navbar.css' %}"></script>
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+

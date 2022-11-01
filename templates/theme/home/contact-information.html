@@ -1,0 +1,38 @@
+<!-- Contact information-->
+<section class="section section-sm bg-default">
+    <div class="container">
+      <div class="row row-30 justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <article class="box-contacts">
+            <div class="box-contacts-body">
+              <div class="box-contacts-icon fl-bigmug-line-cellphone55"></div>
+              <div class="box-contacts-decor"></div>
+              <p class="box-contacts-link"><a href="tel:{{site.site_phone}}">{{site.site_phone}}</a></p>
+            </div>
+          </article>
+        </div>
+        {%if site.site_adres%}
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <article class="box-contacts">
+            <div class="box-contacts-body">
+              <div class="box-contacts-icon fl-bigmug-line-up104"></div>
+              <div class="box-contacts-decor"></div>
+              <p class="box-contacts-link"><a {%if site.site_adres_url%} href="{{site.site_adres_url}}" {%endif%}>{{site.site_adres}}</a></p>
+            </div>
+            {%endif%}
+          </article>
+        </div>
+        {%if site.site_email%}
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <article class="box-contacts">
+            <div class="box-contacts-body">
+              <div class="box-contacts-icon fl-bigmug-line-chat55"></div>
+              <div class="box-contacts-decor"></div>
+              <p class="box-contacts-link"><a href="mailto:{{site.site_email}}">{{site.site_email}}</a></p>
+            </div>
+            {%endif%}
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>

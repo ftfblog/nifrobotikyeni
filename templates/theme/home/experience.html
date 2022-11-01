@@ -1,0 +1,53 @@
+      <!-- Years of experience-->
+{%for experience in experience%}
+{%if forloop.counter == 1%}
+      <section class="section section-sm bg-default">
+        <div class="container">
+          <div class="row row-30 row-xl-24 justify-content-center align-items-center align-items-lg-start text-left">
+            <div class="col-md-6 col-lg-5 col-xl-4 text-center"><a class="text-img" href="#">
+                <div id="particles-js"></div><span class="counter">{{experience.effect_number}}</span></a></div>
+            <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4">
+              <div class="text-width-extra-small offset-top-lg-24 wow fadeInUp">
+                <h3 class="title-decoration-lines-left">{{experience.title}}</h3>
+                <p class="text-gray-500">{{experience.description|safe}}</p><a class="button button-secondary button-pipaluk" href="{{experience.button_url}}">{{experience.button_name}}</a>
+              </div>
+            </div>
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay=".1s">
+              <div class="row justify-content-center border-2-column offset-top-xl-26">
+                <div class="col-9 col-sm-6">
+                  <div class="counter-amy">
+                    <div class="counter-amy-number"><span class="counter">{{experience.first_information_number}}</span>
+                    </div>
+                    <h6 class="counter-amy-title">{{experience.first_information_description}}</h6>
+                  </div>
+                </div>
+                <div class="col-9 col-sm-6">
+                  <div class="counter-amy">
+                    <div class="counter-amy-number"><span class="counter">{{experience.second_information_number}}</span>
+                    </div>
+                    <h6 class="counter-amy-title">{{experience.second_information_description}}</h6>
+                  </div>
+                </div>
+                <div class="col-9 col-sm-6">
+                  <div class="counter-amy">
+                    <div class="counter-amy-number"><span class="counter">{{experience.third_information_number}}</span>
+                    </div>
+                    <h6 class="counter-amy-title">{{experience.third_information_description}}</h6>
+                  </div>
+                </div>
+                <div class="col-9 col-sm-6">
+                  <div class="counter-amy">
+                    <div class="counter-amy-number"><span class="counter">{{experience.fourth_information_number}}</span>
+                    </div>
+                    <h6 class="counter-amy-title">{{experience.fourth_information_description}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%endif%}
+            {%endfor%}
+          </div>
+        </div>
+      </section>
+
+      

@@ -1,0 +1,53 @@
+{%load static%}
+<!-- Page Footer-->
+{%if footer%}
+<footer class="section section-fluid footer-minimal context-dark">
+    <div class="bg-gray-15">
+      <div class="container-fluid">
+        <div class="footer-minimal-inset oh">
+          <ul class="footer-list-category-2">
+            {%for footer in footer%}
+            <li><a href="{%if footer.menu_kare%}#{%endif%}{{footer.menu_url}}">{{footer.menu_name}}</a></li>
+            {%endfor%}
+          </ul>
+        </div>
+        <div class="footer-minimal-bottom-panel text-sm-left">
+          <div class="row row-10 align-items-md-center">
+            <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+              <div>
+                <ul class="list-inline list-inline-sm footer-social-list-2">
+                  {%if site_footer.facebook_url%}
+                        <li><a class="icon fa fa-facebook" href="{{site_footer.facebook_url}}"></a></li>
+                        {%endif%}
+                        {%if site_footer.twitter_url%}
+                        <li><a class="icon fa fa-twitter" href="{{site_footer.twitter_url}}"></a></li>
+                        {%endif%}
+                        {%if site_footer.instgram_url%}
+                        <li><a class="icon fa fa-instagram" href="{{site_footer.instgram_url}}"></a></li>
+                        {%endif%}
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 order-sm-first">
+              <!-- Rights-->
+              
+            </div>
+            {%if site_footer.copyright%}
+            <div class="col-sm-6 col-md-4 text-md-right"><span>{{site_footer.copyright}}</span>
+            {%endif%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+{%endif%}
+</div>
+<!-- Global Mailform Output-->
+<div class="snackbars" id="form-output-global"></div>
+<!-- Javascript-->
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<!-- coded by Himic-->
+</body>
+</html>

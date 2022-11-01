@@ -1,0 +1,60 @@
+</div>
+<!-- See all services-->
+<section class="section section-sm section-first bg-default text-center" id="services">
+  <div class="container">
+    <div class="row row-30 justify-content-center">
+      {%if feature.feature_image%}
+      <div class="col-md-7 col-lg-5 col-xl-6 text-lg-left wow fadeInUp"><img src="{{feature.feature_image.url}}" alt="" width="415" height="592"/>
+      </div>
+      {%endif%}
+      <div class="col-lg-7 col-xl-6">
+        <div class="row row-30">
+          <div class="col-sm-6 wow fadeInRight">
+            <article class="box-icon-modern box-icon-modern-custom">
+              <div>
+                <h3 class="box-icon-modern-big-title">{{feature.feature_first_title}}</h3>
+                <div class="box-icon-modern-decor"></div><a class="button button-primary button-ujarak" href="{{feature.feature_first_button_url}}">{{feature.feature_first_button_title}}</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 wow fadeInRight" data-wow-delay=".1s">
+            <article class="box-icon-modern box-icon-modern-2">
+              {%if feature.feature_second_icons.icon_image%}
+              <div class="box-icon-modern-icon" ><img src="{{feature.feature_second_icons.icon_image.url}}"/></div>
+              {%else%}
+              <div class="box-icon-modern-icon" ><img src="{{feature.feature_second_icons.icon_image_url}}"/></div>
+              {%endif%}
+              <h5 class="box-icon-modern-title"><a href="{{feature.feature_second_url}}">{{feature.feature_second_title}}</a></h5>
+              <div class="box-icon-modern-decor"></div>
+              <p class="box-icon-modern-text">{{feature.feature_second_description}}</p>
+            </article>
+          </div>
+          <div class="col-sm-6 wow fadeInRight" data-wow-delay=".2s">
+            <article class="box-icon-modern box-icon-modern-2">
+              {%if feature.feature_third_icons.icon_image%}
+              <div class="box-icon-modern-icon" ><img src="{{feature.feature_third_icons.icon_image.url}}"/></div>
+              {%else%}
+              <div class="box-icon-modern-icon" ><img src="{{feature.feature_third_icons.icon_image_url}}"/></div>
+              {%endif%}
+              <h5 class="box-icon-modern-title"><a href="{{feature.feature_third_url}}">{{feature.feature_third_title}}</a></h5>
+              <div class="box-icon-modern-decor"></div>
+              <p class="box-icon-modern-text">{{feature.feature_third_description}}</p>
+            </article>
+          </div>
+          <div class="col-sm-6 wow fadeInRight" data-wow-delay=".3s">
+            <article class="box-icon-modern box-icon-modern-2">
+              {%if feature.feature_fourth_icons.icon_image%}
+              <div class="box-icon-modern-icon" ><img src="{{feature.feature_fourth_icons.icon_image.url}}"/></div>
+              {%else%}
+              <div class="box-icon-modern-icon" ><img src="{{feature.feature_fourth_icons.icon_image_url}}"/></div>
+              {%endif%}
+              <h5 class="box-icon-modern-title"><a href="{{feature.feature_fourth_url}}">{{feature.feature_fourth_title}}</a></h5>
+              <div class="box-icon-modern-decor"></div>
+              <p class="box-icon-modern-text">{{feature.feature_fourth_description}}</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

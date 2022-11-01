@@ -1,0 +1,43 @@
+{%if gallery%}
+<section class="section section-sm section-fluid bg-default text-center" id="projects">
+    <div class="container-fluid">
+      {%if title_and_description%}
+      <h2 class="wow fadeInLeft">{{title_and_description.title|safe}}</h2>
+      <p class="quote-jean wow fadeInRight" data-wow-delay=".1s">{{title_and_description.description|safe}}</p>
+      {%endif%}
+      <div class="isotope-filters isotope-filters-horizontal">
+        <button class="isotope-filters-toggle button button-md button-icon button-icon-right button-default-outline button-wapasha" data-custom-toggle="#isotope-3" data-custom-toggle-hide-on-blur="true" data-custom-toggle-disable-on-blur="true"><span class="icon fa fa-caret-down"></span>Filter</button>
+        <ul class="isotope-filters-list" id="isotope-3">
+          {%for gallery in gallery%}
+          {%if forloop.counter == 1%}
+          <li><a class="active" href="#" data-isotope-filter="Type {{gallery.id}}" data-isotope-group="gallery">{{gallery.name}}</a></li>
+          {%else%}
+          <li><a href="#" data-isotope-filter="Type {{gallery.id}}" data-isotope-group="gallery">{{gallery.name}}</a></li>
+          {%endif%}
+          {%endfor%}
+
+        </ul>
+      </div>
+      <div class="row row-30 isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
+        {%for gallery in gallery%}
+        {% for image in gallery.foregeinkey.all%}
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type {{gallery.id}}">
+          <!-- Thumbnail Classic-->
+          <article class="thumbnail thumbnail-classic thumbnail-md">
+            <div class="thumbnail-classic-figure"><img src="{{image.image_for_information_image.url}}" alt="" width="420" height="350"/>
+            </div>
+            <div class="thumbnail-classic-caption">
+              <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="{{image.image_for_information_image.url}}" data-lightgallery="item"><img src="{{b.image_for_information_image.url}}" alt="" width="420" height="350"/></a>
+                <h5 class="thumbnail-classic-title"><a href="{{image.image_for_information_title_url}}">{{image.image_for_information_title|safe}}</a></h5>
+              </div>
+              <p class="thumbnail-classic-text">{{image.image_for_information_description|safe}}</p>
+            </div>
+          </article>
+        </div>
+        {%endfor%}
+        {%endfor%}
+
+      </div>
+    </div>
+  </section>
+  {%endif%}
